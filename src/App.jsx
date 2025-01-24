@@ -1,11 +1,13 @@
+import React from "react";
+import Login from "./Components/Login/Login"; // Ajuste o caminho conforme necessário
 import "./App.css";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <p>Página de Login</p>
+      <Login />
     </div>
   );
-}
+};
 
 export default App;
