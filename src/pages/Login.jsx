@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import MaskedInput from "react-text-mask"; // Mascara do CPF
-import { FaUser, FaLock } from "react-icons/fa"; // Ícones
+import { FaLock } from "react-icons/fa"; // Ícones
 import AlertMessage from "../Components/AlertMessage"; // Alerta de mensagem
 import { Link } from "react-router-dom"; // React Router para navegação
 import "../styles/Login.css"; // Estilos
+import MaskedInputCpf from "../Components/MaskedInputCpf";
 
 const Login = () => {
   const [cpf, setCpf] = useState(""); // Estado para o CPF
@@ -62,32 +62,11 @@ const Login = () => {
   return (
     <div className="container">
       <form onSubmit={handleSubmit}>
-        <h1>Acesse o Sistema</h1>
+        <h1>Acesse o Eco Manager</h1>
 
         {/* Campo de CPF */}
         <div className="input-field">
-          <MaskedInput
-            mask={[
-              /\d/,
-              /\d/,
-              /\d/,
-              ".",
-              /\d/,
-              /\d/,
-              /\d/,
-              ".",
-              /\d/,
-              /\d/,
-              /\d/,
-              "-",
-              /\d/,
-              /\d/,
-            ]}
-            value={cpf}
-            onChange={(e) => setCpf(e.target.value)}
-            placeholder="Digite seu CPF"
-          />
-          <FaUser className="icon" />
+          <MaskedInputCpf cpf={cpf} setCpf={setCpf} />
         </div>
 
         {/* Campo de Senha */}

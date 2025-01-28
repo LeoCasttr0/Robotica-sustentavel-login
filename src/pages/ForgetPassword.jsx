@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import InputMask from "react-input-mask"; // Mascara CPF
 import AlertMessage from "../Components/AlertMessage"; // Alerta
-import { FaUser } from "react-icons/fa"; // Ícone de usuário
 import "../styles/ForgetPassword.css"; // Estilos
+import MaskedInputCpf from "../Components/MaskedInputCpf";
 
 const ForgotPassword = () => {
   const [cpf, setCpf] = useState(""); // Estado para o CPF
@@ -58,19 +58,7 @@ const ForgotPassword = () => {
 
         {/* Campo de CPF */}
         <div className="input-field">
-          <InputMask
-            mask="999.999.999-99"
-            value={cpf}
-            onChange={(e) => setCpf(e.target.value)}
-          >
-            {(inputProps) => (
-              <input
-                {...inputProps}
-                placeholder="Digite seu CPF"
-                className="input"
-              />
-            )}
-          </InputMask>
+          <MaskedInputCpf cpf={cpf} setCpf={setCpf} />
         </div>
 
         {/* Alerta se o CPF for inválido ou vazio */}
